@@ -1,0 +1,6 @@
+{
+    "film_adapter_url": "http://localhost:6060",
+    "login_system_url": "http://localhost:4001",
+    "recombee_url": "http://localhost:6061",
+    "recombee_token": "NMBg52k5YJ89azgbjsNtwc4BCRO0tgBMBNetRngQdYlQCAseleRQiLfNfZMwoJBa"
+}
