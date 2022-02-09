@@ -18,12 +18,13 @@ router.get('/search-games/:keywords/:genre?', controller.searchGame);
 
 //show movie/serie/film/game
 //ritorna l'oggetto richiesto e aggiunge un intereazione di tipo detail 
-router.get('/show-movie/:id', controller.searchGame);
-router.get('/show-game/:id', controller.searchGame);
-router.get('/show-serie/:id', controller.searchGame);
-
-//watch movie/serie/film/game
-//simula la visualizzazione di un film o l'aver comprato un gioco e aggiunge un interazione di tipo purchase
+router.get('/show-movie/:id', controller.showMovie);
+router.get('/show-game/:id', controller.showGame);
+router.get('/show-tv/:id', controller.showTv);
+//ritorna oggetto richiesto e aggiunge interazione purchase (simula visione/aquisto)
+router.get('/watch-movie/:id', controller.watchMovie);
+router.get('/purchase-game/:id', controller.purchaseGame);
+router.get('/watch-tv/:id', controller.watchTv);
 
 //get recomendation for logged user 
 

@@ -23,16 +23,10 @@ const hasPermission = async (req: Request, res: Response , next: NextFunction, p
   }
 } 
 
-const authCinema = async (req: Request, res: Response , next: NextFunction) => {
-  return await hasPermission(req, res , next, 'cinema');
-}
 
-const authGames = async (req: Request, res: Response , next: NextFunction) => {
-  return await hasPermission(req, res , next, 'games');
-}
-const authRecombee = async (req: Request, res: Response , next: NextFunction) => {
+const authMultimedia = async (req: Request, res: Response , next: NextFunction) => {
   return await hasPermission(req, res , next, 'recombee');
 }
 
-export default { authCinema, authGames, authRecombee };
+export default { authMultimedia };
 

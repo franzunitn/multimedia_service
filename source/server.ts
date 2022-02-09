@@ -5,7 +5,8 @@ import http from 'http';
 import express, { Express } from 'express';
 import morgan from 'morgan';
 import routes from './routes/multimedia_routes';
-
+import login_routes from './routes/login_routes';
+import auth from './middleware/auth';
 const router: Express = express();
 
 /** Logging */
@@ -30,7 +31,9 @@ router.use((req, res, next) => {
 });
 
 /** Routes */
-router.use('/', routes);
+router.use('/', login_routes);
+router.use('/', auth.authMultimedia, routes);
+
 
 /** Error handling */
 router.use((req, res, next) => {
