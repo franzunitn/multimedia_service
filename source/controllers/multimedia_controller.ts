@@ -205,4 +205,32 @@ const purchaseGame = async (req:Request, res:Response, next:NextFunction) => {
     return intercat_show_purchase(req,res,next, 'game', 'purchase');
 }
 
-export default { register, login, searchCinema, searchGame, showMovie, showGame, showTv, watchMovie, watchTv, purchaseGame};
+
+const getRecomendations = async (req:Request, res:Response, next:NextFunction) => {
+    //prendiamo user_id dal token 
+    let token = req.header('x-access-token');
+    if (token == undefined){
+        return res.status(500).send({message: 'Cant find access token'});;
+    }
+    let user:any = jwt_decode(token);
+    let user_id = user.user_id;
+    let number = parseInt(req.params.number);
+    let type = req.params.type;
+
+        try {
+            var recombee_response = await axios.get(config.recombee_url+'/get-recomendations/'+type+'/user/'+user_id+'/number/'+number, {
+                headers: {
+                    'x-access-token': token
+                },
+            });
+            var recom = await recombee_response.data;
+            res.status(200);
+            return res.json(recom);
+        } catch (e:any){
+            //errore recomendation
+            return res.status(500).send({message: e.response.data});
+        }
+}
+
+
+export default { register, login, searchCinema, searchGame, showMovie, showGame, showTv, watchMovie, watchTv, purchaseGame, getRecomendations};

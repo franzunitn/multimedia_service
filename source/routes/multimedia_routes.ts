@@ -27,9 +27,6 @@ router.get('/purchase-game/:id', controller.purchaseGame);
 router.get('/watch-tv/:id', controller.watchTv);
 
 //get recomendation for logged user 
-
-
-//init-user-interaction
-//aggiunge N utenti e N raccomandazioni per inizializzare l'applicazione
+router.get('/recomendations/:type/:number', controller.getRecomendations);
 
 export = router;
