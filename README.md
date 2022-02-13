@@ -154,9 +154,13 @@
 * **Url Params**
 
   **Required:**
+
     `keywords=[keywords]`
+
   **Optional:**
+
     `genre=[genre_id]`
+    
 
 * **Success Response:**
 
