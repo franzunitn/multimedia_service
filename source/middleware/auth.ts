@@ -25,7 +25,7 @@ const hasPermission = async (req: Request, res: Response , next: NextFunction, p
 
 
 const authMultimedia = async (req: Request, res: Response , next: NextFunction) => {
-  return await hasPermission(req, res , next, 'recombee');
+  return await hasPermission(req, res , next, 'default');
 }
 
 export default { authMultimedia };
