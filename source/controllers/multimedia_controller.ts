@@ -19,6 +19,7 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
                 token: data.token,
                 user_id: data._id
             });
+            res.status(200);
             return res.json(data);
         } catch (e:any){
             res.status(500);
