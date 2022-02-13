@@ -1,3 +1,5 @@
+***API DOCUMENTATION***
+
 **Registration**
 ----
   Register a user to the login system and add the corrispetive user to recombee
@@ -10,13 +12,6 @@
 
   `POST`
 
-* **Header Params**
-
-  **Required:**
-
-* **Url Params**
-
-  **Optional:**
 
 * **Success Response:**
 
@@ -45,11 +40,6 @@
 
   `POST`
 
-* **Header Params**
-
-  **Required:**
-
-* **Url Params**
 * **Data Params**
 
   **Required:**
@@ -232,7 +222,6 @@
 
   **Required:**
     `id=[id of the movie]`
-  **Optional:**
 
 * **Success Response:**
 
@@ -284,7 +273,6 @@
 
   **Required:**
     `id=[id of the tv item]`
-  **Optional:**
 
 * **Success Response:**
 
@@ -335,7 +323,6 @@
 
   **Required:**
     `id=[id of the game]`
-  **Optional:**
 
 * **Success Response:**
 
@@ -386,7 +373,6 @@
 
   **Required:**
     `id=[id of the movie]`
-  **Optional:**
 
 * **Success Response:**
 
@@ -438,7 +424,6 @@
 
   **Required:**
     `id=[id of the tv show]`
-  **Optional:**
 
 * **Success Response:**
 
@@ -489,7 +474,6 @@
 
   **Required:**
     `id=[id of the game]`
-  **Optional:**
 
 * **Success Response:**
 
@@ -541,7 +525,6 @@
 
   **Required:**
   `type=[movies|games|tvs]`
-  **Optional:**
 * **Success Response:**
 
   * **Code:** 200 <br />
