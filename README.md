@@ -154,13 +154,12 @@
 * **Url Params**
 
   **Required:**
-
-    `keywords=[keywords]`
+ 
+   `keywords=[keywords]`
 
   **Optional:**
 
-    `genre=[genre_id]`
-    
+   `genre=[genre_id]`
 
 * **Success Response:**
 
