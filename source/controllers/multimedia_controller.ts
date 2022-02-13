@@ -22,11 +22,11 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
             res.status(200);
             return res.json(data);
         } catch (e:any){
-            res.status(500);
+            res.status(e.response.status);
             return res.json({message: e.response.data});
         }    
     } catch (e:any){
-        return res.status(500).send({message: e.response.data});
+        return res.status(e.response.status).send({message: e.response.data});
     }
    
 };
@@ -40,7 +40,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
         res.status(200);
         res.json(data);
     } catch (e:any){
-        return res.status(500).send({message: e.response.data});
+        return res.status(e.response.status).send({message: e.response.data});
     }
    
 };
@@ -79,11 +79,11 @@ const searchCinema = async (req:Request, res:Response, next:NextFunction) => {
             return res.json(final);
         } catch (e:any){
             //errore recomendation
-            return res.status(500).send({message: e.response.data});
+            return res.status(e.response.status).send({message: e.response.data});
         }
     } catch(e:any){
             //errore search 
-        return res.status(500).send({message: e.response.data, service:"filmadapter"});
+        return res.status(e.response.status).send({message: e.response.data, service:"filmadapter"});
     }
 
 
@@ -124,11 +124,11 @@ const searchGame = async (req:Request, res:Response, next:NextFunction) => {
             return res.json(final);
         } catch (e:any){
             //errore recomendation
-            return res.status(500).send({message: e.response.data});
+            return res.status(e.response.status).send({message: e.response.data});
         }
     } catch(e:any){
             //errore search 
-        return res.status(500).send({message: e.response.data, service:"filmadapter"});
+        return res.status(e.response.status).send({message: e.response.data, service:"filmadapter"});
     }
 }
 
@@ -179,11 +179,11 @@ const intercat_show_purchase = async (req:Request, res:Response, next:NextFuncti
             return res.json(result);
         } catch (e:any){
             //errore recomendation
-            return res.status(500).send({message: e.response.data, service:"recombee"});
+            return res.status(e.response.status).send({message: e.response.data, service:"recombee"});
         }
     } catch(e:any){
             //errore search 
-        return res.status(500).send({message: e.response.data, service:"filmadapter"});
+        return res.status(e.response.status).send({message: e.response.data, service:"filmadapter"});
     }
 }
 
@@ -229,7 +229,7 @@ const getRecomendations = async (req:Request, res:Response, next:NextFunction) =
             return res.json(recom);
         } catch (e:any){
             //errore recomendation
-            return res.status(500).send({message: e.response.data});
+            return res.status(e.response.status).send({message: e.response.data});
         }
 }
 
