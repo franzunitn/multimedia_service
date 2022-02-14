@@ -45,6 +45,42 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
    
 };
 
+const getTopMovie = async (req:Request, res:Response, next:NextFunction) => {
+    return await getTop(req, res, next, 'top-movies');
+}
+
+const getTopTv = async (req:Request, res:Response, next:NextFunction) => {
+    return await getTop(req, res, next, 'top-tv');
+}
+
+const getTopGames = async (req:Request, res:Response, next:NextFunction) => {
+    return await getTop(req, res, next, 'top-games');
+}
+
+const getTop = async (req:Request, res:Response, next:NextFunction, end_point:string) => {
+    //prendiamo user_id dal token 
+    let token = req.header('x-access-token');
+    if (token == undefined){
+        return res.status(500).send({message: 'Cant find access token'});;
+    }
+   
+    let num_tvs_limit = parseInt(req.params.limit);
+    num_tvs_limit = num_tvs_limit ? num_tvs_limit : 250;  
+    try {
+        var film_adapter_response = await axios.get(config.film_adapter_url+'/'+end_point+'/'+num_tvs_limit, {
+            headers: {
+                'x-access-token': token
+            },
+          });
+        var result = film_adapter_response.data;
+        res.status(200);
+        return res.json(result);
+    } catch(e:any){
+            //errore search 
+        return res.status(e.response.status).send({message: e.response.data, service:"filmadapter"});
+    }
+}
+
 const searchCinema = async (req:Request, res:Response, next:NextFunction) => {
     //facciamo ricerca dei titoli 
     let keywords = req.params.keywords;
@@ -85,8 +121,6 @@ const searchCinema = async (req:Request, res:Response, next:NextFunction) => {
             //errore search 
         return res.status(e.response.status).send({message: e.response.data, service:"filmadapter"});
     }
-
-
     
 }
 
@@ -234,4 +268,4 @@ const getRecomendations = async (req:Request, res:Response, next:NextFunction) =
 }
 
 
-export default { register, login, searchCinema, searchGame, showMovie, showGame, showTv, watchMovie, watchTv, purchaseGame, getRecomendations};
+export default { register, login, searchCinema, searchGame, getTopMovie, getTopTv, getTopGames, showMovie, showGame, showTv, watchMovie, watchTv, purchaseGame, getRecomendations};

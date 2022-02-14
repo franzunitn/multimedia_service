@@ -562,4 +562,177 @@
     **Content:** `{ message : "Invalid auth request" }`
 
 
+**Top games**
+----
+  Return the top games
 
+* **URL**
+
+  /top-games/:limit?
+
+* **Method:**
+
+  `GET`
+
+* **Header Params**
+
+  **Required:**
+  `x-access-token=your_jwt`
+
+* **Url Params**
+
+  **Optional:**
+
+   `limit=[limit]`
+   default 250
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    `
+    [
+      items = {
+          "id": id of the item,
+          "year": year,
+          "title": title,
+          "overview": overview,
+          "genre_ids": genre_ids,
+          "category": category
+      },
+      ...
+    ]
+    `
+ 
+* **Error Response:**
+
+  * **Code:** 403 FORBIDDEN <br />
+    **Content:** `{ message : "Auth token must be specified" }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ message : "Invalid token" }`
+
+  OR
+
+   * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ message : "Invalid auth request" }`
+
+
+**Top movies**
+----
+  Return the top movies
+
+* **URL**
+
+  /top-movies/:limit?
+
+* **Method:**
+
+  `GET`
+
+* **Header Params**
+
+  **Required:**
+  `x-access-token=your_jwt`
+
+* **Url Params**
+
+  **Optional:**
+
+   `limit=[limit]`
+   default 250
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    `
+    [
+      items = {
+        "id": id of the item,
+        "adult": adult,
+        "year": year,
+        "title": title,
+        "overview": overview,
+        "genre_ids": genre_ids,
+        "original_language": original language
+      },
+      ...
+    ]
+    `
+ 
+* **Error Response:**
+
+  * **Code:** 403 FORBIDDEN <br />
+    **Content:** `{ message : "Auth token must be specified" }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ message : "Invalid token" }`
+
+  OR
+
+   * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ message : "Invalid auth request" }`
+
+
+**Top tv**
+----
+  Return the top tv show
+
+* **URL**
+
+  /top-tv/:limit?
+
+* **Method:**
+
+  `GET`
+
+* **Header Params**
+
+  **Required:**
+  `x-access-token=your_jwt`
+
+* **Url Params**
+
+  **Optional:**
+
+   `limit=[limit]`
+   default 250
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    `
+    [
+      items = {
+        "id": id of the item,
+        "adult": adult,
+        "year": year,
+        "title": title,
+        "overview": overview,
+        "genre_ids": genre_ids,
+        "original_language": original language
+      },
+      ...
+    ]
+    `
+ 
+* **Error Response:**
+
+  * **Code:** 403 FORBIDDEN <br />
+    **Content:** `{ message : "Auth token must be specified" }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ message : "Invalid token" }`
+
+  OR
+
+   * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ message : "Invalid auth request" }`

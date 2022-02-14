@@ -7,6 +7,11 @@ const router = express.Router();
 router.post('/register', controller.register);
 //logga un utente
 router.post('/login', controller.login);
+
+router.get('/top-movies/:limit?', controller.getTopMovie);
+router.get('/top-tv/:limit?', controller.getTopTv);
+router.get('/top-games/:limit?', controller.getTopGames);
+
 //search cinema: prende in input una query di testo per fare ricerca sul titolo, e user_id.
 router.get('/search-cinema/:keywords/:type?/:genre?', controller.searchCinema);
 //ritorna oggetti cinema risultato della ricerca e N raccomandazioni per l'utente
