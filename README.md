@@ -87,7 +87,7 @@
    `keywords=[keywords]`
   **Optional:**
  
-   `type=[movie|tv]`
+   `type=[movie|tv|all]`
    `genre=[genre_id]`
 
 * **Success Response:**
